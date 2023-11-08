@@ -56,14 +56,7 @@ pipeline {
                 }
             }
         }
-        stage("Quality Gate") {
-            steps {
-                timeout(time: 10, unit: 'MINUTES') {
-                    waitForQualityGate abortPipeline: true
-                }
-            }
-        }
-        stage("UploadArtifact") {
+                stage("UploadArtifact") {
 
             steps {
                     nexusArtifactUploader(
@@ -81,6 +74,13 @@ pipeline {
                         type: 'war']
                     ]
                 )
+            }
+        }
+        stage("Quality Gate") {
+            steps {
+                timeout(time: 10, unit: 'MINUTES') {
+                    waitForQualityGate abortPipeline: true
+                }
             }
         }
     }
