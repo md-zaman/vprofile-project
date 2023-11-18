@@ -25,7 +25,6 @@ pipeline {
         appRegistry = '210239161555.dkr.ecr.us-east-1.amazonaws.com/vprofileappimg'
         vprofileRegistry = "https://210239161555.dkr.ecr.us-east-1.amazonaws.com"
     }
-
     stages {
         stage('Build'){
             steps {
