@@ -60,7 +60,7 @@ pipeline {
         stage("UploadArtifact") {
 
             steps {
-                    nexusArtifactUploader(
+                nexusArtifactUploader(
                     nexusVersion: 'nexus3',
                     protocol: 'http',
                     nexusUrl: "${NEXUSIP}:${NEXUSPORT}",
@@ -86,3 +86,4 @@ pipeline {
         }
     }
 }
+
