@@ -25,6 +25,7 @@ pipeline {
         appRegistry = '210239161555.dkr.ecr.us-east-1.amazonaws.com/vprofileappimg'
         vprofileRegistry = "https://210239161555.dkr.ecr.us-east-1.amazonaws.com"
     }
+
     stages {
         stage('Build'){
             steps {
@@ -102,7 +103,7 @@ pipeline {
         stage('Build App Image') {
             steps {
                 script {
-                    dockerImage = docker.build( appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/multistage/")
+                    dockerImage = docker.build(appRegistry + ":$BUILD_NUMBER", "./Docker-files/app/multistage/")
                 }
             }
         }
