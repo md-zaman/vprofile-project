@@ -10,22 +10,8 @@ pipeline {
     }
     
     environment {
-        SNAP_REPO = 'vprofile-snapshot'
-		NEXUS_USER = 'admin'
-		NEXUS_PASS = 'admin123'
-		RELEASE_REPO = 'vprofile-release'
-		CENTRAL_REPO = 'vpro-maven-central'
-		NEXUSIP = '172.31.86.165'
-		NEXUSPORT = '8081'
-		NEXUS_GRP_REPO = 'vpro-maven-group'
-        NEXUS_LOGIN = 'nexuslogin'
-        SONARSERVER = 'sonarserver'
-        SONARSCANNER = 'sonarscanner'
-        registryCredential = 'ecr:us-east-1:awscreds'
-        appRegistry = '210239161555.dkr.ecr.us-east-1.amazonaws.com/vprofileappimg'
-        vprofileRegistry = "https://210239161555.dkr.ecr.us-east-1.amazonaws.com"
-        cluster = "vprostaging"
-        service = "vproappstagesvc"
+        cluster = "vproprod"
+        service = "vproappprodsvc"
     }
     stages {
         stage('Build'){
@@ -128,7 +114,7 @@ pipeline {
             }
         }
     }
-    
+
     post {
         always {
             echo 'Slack Notifications.'
